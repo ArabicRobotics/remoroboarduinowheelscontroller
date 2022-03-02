@@ -1,6 +1,6 @@
 from threading import Thread
 import time
-from Raspblock import Raspblock
+#from Raspblock import Raspblock
 class Wheels (object):
 	def __init__(self,robot):
 		"""This initilization for 
@@ -20,10 +20,10 @@ class Wheels (object):
 		False : Something went wrong
 		""" 
 		try: 
-			result = self.robot.Speed_Wheel_control(values[0],values[1], values[2],values[3])      #All wheel forward with 2 speed"
+			#result = self.robot.Speed_Wheel_control(values[0],values[1], values[2],values[3])      #All wheel forward with 2 speed"
 			if duration>0:
 				time.sleep(duration)
-				self.robot.Speed_Wheel_control(0,0,0,0) 
+				#self.robot.Speed_Wheel_control(0,0,0,0) 
 			return result
 		except Exception as e:
 			print(e)
