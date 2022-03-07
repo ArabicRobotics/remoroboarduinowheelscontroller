@@ -13,19 +13,25 @@ class ClientThread(threading.Thread):
 			#self.csocket.send(bytes("Hi, This is from Server..",'utf-8'))
 			msg = ''
 			while True:
-				data = self.csocket.recv(2048)
-				msg = data.decode()
+				try:
 
-				SocketSever.lastData = msg
-				threadCatchData = threading.Thread(target=self.catcher.Catch,args=(msg,),name="ThreadCatchData")
-				threadCatchData.start()
+					data = self.csocket.recv(2048)
+					msg = data.decode()
 
-				if msg=='bye':
-					break
+					SocketSever.lastData = msg
+					threadCatchData = threading.Thread(target=self.catcher.Catch,args=(msg,),name="ThreadCatchData")
+					threadCatchData.start()
+
+					if msg=='bye':
+						break
+				except Exception as e:
+					print (e)
+					print "Error in Data"
 				print ("from client", SocketSever.lastData)
 				self.csocket.send(bytes(msg,'UTF-8'))
 			print ("Client at ", self.clientAddress , " disconnected...")
 		except Exception as e:
+			print "Error in Socket Server -- Run"
 			print (e)
 			return False
 class SocketSever(object):
