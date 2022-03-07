@@ -37,10 +37,11 @@ class InputCatcher(object):
 
 	def doAction(self,command,params,requestId=""):
 		try:
+		duration = 4
 			print (" I am in doAction with "+str(params))
 			while(switch(command)):
 				if case("m"):
-					result = self.robot.move(params,int(duration),self.socket,requestId)
+					result = self.robot.move(params,duration,self.socket,requestId)
 					if result:
 						result = ServerUtilities.setResult("Movement",result,enumEventType.Success,requestId)
 					else:
