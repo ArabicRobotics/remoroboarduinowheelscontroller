@@ -24,7 +24,7 @@ class InputCatcher(object):
 			print(data)
 			jsonData= JsonFormatter.getJsonfromString(data)
 			if jsonData != False:
-				result = self.doAction(jsonData["com"],jsonData["params"],jsonData["requestId"],jsonData["d"])
+				result = self.doAction(jsonData["com"],jsonData["params"],jsonData["requestId"])
 			else:
 				result = ServerUtilities.setResult("Json Error",False,enumEventType.Error,"")
 				self.socket.send(bytes(str(result),'UTF-8'))
