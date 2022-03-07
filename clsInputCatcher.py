@@ -31,6 +31,7 @@ class InputCatcher(object):
 			return True
 		except Exception as e:
 			print (e)
+			print "error in Do "
 			return False
 
 	def doAction(self,command,params,requestId="",duration=2):
