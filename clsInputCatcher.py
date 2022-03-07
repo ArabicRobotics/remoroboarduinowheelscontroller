@@ -34,9 +34,8 @@ class InputCatcher(object):
 			print "error in Do "
 			return False
 
-	def doAction(self,command,params,requestId="",duration=2):
+	def doAction(self,command,params,requestId=""):
 		try:
-			duration=eval(duration)
 			print (" I am in doAction with "+str(params))
 			while(switch(command)):
 				if case("m"):
