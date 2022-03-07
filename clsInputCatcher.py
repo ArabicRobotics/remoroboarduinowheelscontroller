@@ -23,6 +23,7 @@ class InputCatcher(object):
 			
 			print(data)
 			jsonData= JsonFormatter.getJsonfromString(data)
+			print "do--> json Data Json Formatter Getting .. Done"
 			if jsonData != False:
 				result = self.doAction(jsonData["com"],jsonData["params"],jsonData["requestId"])
 			else:
