@@ -21,6 +21,10 @@ class Wheels (object):
 		""" 
 		try: 
 			result = ""
+			print "I am in Move "
+			print values
+			print duration
+			print "End Print Move"
 			#result = self.robot.Speed_Wheel_control(values[0],values[1], values[2],values[3])      #All wheel forward with 2 speed"
 			if duration>0:
 				time.sleep(duration)
@@ -50,12 +54,13 @@ class Wheels (object):
 			intValues =  list(str(values).split(','))
 			finalValues=[]
 			for val in intValues:
-				finalValues.append(int(val))
+				finalValues.append(val)
 			print (finalValues)
 			Thread(target=self._move,args=(finalValues,duration,),name="ThreadMove").start()
 			
 			#self._move(intValues,duration)
 			return True
 		except Exception as e:
+			print "Error in decodeValues"
 			print(e)
 			return False
