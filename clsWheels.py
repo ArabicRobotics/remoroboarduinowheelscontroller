@@ -43,8 +43,9 @@ class Wheels (object):
 		""" 
 		try: 
 			print (values)
-			self.decodeValues(values,duration)
+			#self.decodeValues(values,duration)
 			#robot.Speed_Wheel_control(2, 2, 2, 2)      #All wheel forward with 2 speed"
+			self._move(values,duration)
 			return True
 		except Exception as e:
 			print(e)
