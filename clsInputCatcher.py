@@ -38,6 +38,7 @@ class InputCatcher(object):
 	def doAction(self,command,params,requestId=""):
 		try:
 			duration = 4
+			result = ""
 			print (" I am in doAction with "+str(params))
 			while(switch(command)):
 				if case("m"):
