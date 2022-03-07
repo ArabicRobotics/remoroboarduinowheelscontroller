@@ -47,7 +47,7 @@ class InputCatcher(object):
 					self.socket.send(bytes(str(result),'UTF-8'))					
 					return
 				if (case("b")):
-					result  = self.robot.buzz(int(params),duration,self.socket,requestId)
+					result  = "Buzz"
 					if result:
 						result = ServerUtilities.setResult("Buzz",result,enumEventType.Success,requestId)
 					else:

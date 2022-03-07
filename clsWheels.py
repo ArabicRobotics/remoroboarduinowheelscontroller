@@ -2,11 +2,11 @@ from threading import Thread
 import time
 #from Raspblock import Raspblock
 class Wheels (object):
-	def __init__(self,robot):
+	def __init__(self):
 		"""This initilization for 
 		""" 
 		try: 
-			self.robot = robot
+			#self.robot = robot
 			return
 		except Exception as e:
 			print(e)

@@ -10,7 +10,7 @@ class Robot (object):
 		"""This initilization for 
 		""" 
 		try: 
-			self.wheels =Wheels(self.robot)
+			self.wheels =Wheels()
 			return
 		except Exception as e:
 			print (e)
