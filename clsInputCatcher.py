@@ -42,6 +42,7 @@ class InputCatcher(object):
 			print (" I am in doAction with "+str(params))
 			while(switch(command)):
 				if case("m"):
+					print "Command Is Move "
 					result = self.robot.move(params,duration,self.socket,requestId)
 					if result:
 						result = ServerUtilities.setResult("Movement",result,enumEventType.Success,requestId)
