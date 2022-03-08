@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FB097B57-7A9A-46E0-9B59-F035BED194E6}"
 	ProjectSection(SolutionItems) = preProject
+		clsConnection.py = clsConnection.py
 		clsInputCatcher.py = clsInputCatcher.py
 		clsJsonFormatter.py = clsJsonFormatter.py
 		clsRobot.py = clsRobot.py
