@@ -47,7 +47,7 @@ class Wheels (object):
 			#self._move(values,duration)
 
 			threadMoving = threading.Thread(target=self._move,args=(values,duration,),name="threadMoving")
-			thradMoving.start()
+			threadMoving.start()
 			return True
 		except Exception as e:
 			print(e)
