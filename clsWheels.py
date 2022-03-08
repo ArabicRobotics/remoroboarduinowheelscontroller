@@ -21,7 +21,7 @@ class Wheels (object):
 		""" 
 		try: 
 			result = ""
-			print "I am in Move "
+			print "I am in _move "
 			print values
 			print duration
 			print "End Print Move"
@@ -42,7 +42,9 @@ class Wheels (object):
 		False : Something went wrong
 		""" 
 		try: 
+		print "I am in move"
 			print (values)
+
 			#robot.Speed_Wheel_control(2, 2, 2, 2)      #All wheel forward with 2 speed"
 			#self._move(values,duration)
 
@@ -52,5 +54,3 @@ class Wheels (object):
 		except Exception as e:
 			print(e)
 			return False
-			return False
-
