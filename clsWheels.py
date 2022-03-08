@@ -42,7 +42,7 @@ class Wheels (object):
 		False : Something went wrong
 		""" 
 		try: 
-		print "I am in move"
+		`	print "I am in wheels-move"
 			print (values)
 
 			#robot.Speed_Wheel_control(2, 2, 2, 2)      #All wheel forward with 2 speed"
