@@ -44,9 +44,11 @@ class InputCatcher(object):
 			while(switch(command)):
 				if case("m"):
 					print "Command Is Move "
+					result = ServerUtilities.setResult("Movement Command Received",result,enumEventType.Success,requestId)
+					self.socket.send(str(result))
 					result = self.robot.move(params,duration,self.socket,requestId)
 					if result:
-						result = ServerUtilities.setResult("Movement",result,enumEventType.Success,requestId)
+						result = ServerUtilities.setResult("Movement Command Received",result,enumEventType.Success,requestId)
 					else:
 						result = ServerUtilities.setResult("Movement",result,enumEventType.Error,requestId)    						
 					self.socket.send(str(result))
