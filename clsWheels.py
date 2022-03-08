@@ -45,24 +45,11 @@ class Wheels (object):
 			print (values)
 			self.decodeValues(values,duration)
 			#robot.Speed_Wheel_control(2, 2, 2, 2)      #All wheel forward with 2 speed"
-			self._move(values,duration)
+			#self._move(values,duration)
+	`		Thread(target=self._move,args=(values,duration,),name="ThreadMove").start()
 			return True
 		except Exception as e:
 			print(e)
 			return False
 			return False
-	def decodeValues(self,values,duration=10):
-		try:
-			intValues =  list(str(values).split(','))
-			finalValues=[]
-			for val in intValues:
-				finalValues.append(val)
-			print (finalValues)
-			Thread(target=self._move,args=(finalValues,duration,),name="ThreadMove").start()
-			
-			#self._move(intValues,duration)
-			return True
-		except Exception as e:
-			print "Error in decodeValues"
-			print(e)
-			return False
+
