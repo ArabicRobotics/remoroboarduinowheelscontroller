@@ -25,11 +25,11 @@ class InputCatcher(object):
 			jsonData= JsonFormatter.getJsonfromString(data)
 			print "do--> json Data Json Formatter Getting .. Done"
 			if jsonData != False:
-				self.socket.send(str(data))
+				#self.socket.send(str(data))
 				result = self.doAction(jsonData["com"],jsonData["params"],jsonData["requestId"])
 			else:
 				result = ServerUtilities.setResult("Json Error",False,enumEventType.Error,"")
-				self.socket.send(bytes(str(result),'UTF-8'))
+				self.socket.send(str(result))
 			return True
 		except Exception as e:
 			print (e)
@@ -49,7 +49,7 @@ class InputCatcher(object):
 						result = ServerUtilities.setResult("Movement",result,enumEventType.Success,requestId)
 					else:
 						result = ServerUtilities.setResult("Movement",result,enumEventType.Error,requestId)    						
-					self.socket.send(bytes(str(result),'UTF-8'))					
+					self.socket.send(str(result))
 					return
 				if (case("b")):
 					result  = "Buzz"
@@ -57,16 +57,16 @@ class InputCatcher(object):
 						result = ServerUtilities.setResult("Buzz",result,enumEventType.Success,requestId)
 					else:
 						result = ServerUtilities.setResult("Buzz",False,enumEventType.Error,requestId)    						
-					self.socket.send(bytes(str(result),'UTF-8'))
+					self.socket.send(str(result))
 					return
 				return
 			result = ServerUtilities.setResult("Not Existing Command ( Please send m ot b",False,enumEventType.Error,requestId)
 			
-			self.socket.send(bytes(str(result),'UTF-8'))
+			self.socket.send(str(result))
 
 			return True
 		except Exception as e:
 			result = ServerUtilities.setResult("Error while doing the Action",e,enumEventType.Error,"")
-			self.socket.send(bytes(str(result),'UTF-8'))
+			self.socket.send(str(result))
 			print (e)
 			return False
