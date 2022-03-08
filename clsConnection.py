@@ -24,13 +24,13 @@ class Connection (object):
 		try:
 			try:
 				if self.ser.isOpen():
-					print ("port is opened!")
+					print ("Port is Opened!")
 					self.ser.close()
 				if open:
 					self.ser.open()
 				else:
-					print ("port is Closed!")
-				return true
+					print ("Port is Closed!")
+				return True
 			except IOError: # if port is already opened, close it and open it again and print message
 				ser.close()
 				ser.open()
@@ -63,6 +63,25 @@ class Connection (object):
 			print (e)
 			return False
 
+	def send(self,x):
+		try:
+			writeFeedback = self.ser.write(str(x.encode()))
+			return writeFeedback
+		except Exception as e:
+			print (e)
+			return False
+
+	def read(self):
+		try:
+			data = arduino.readline()
+			return data
+		except Exception as e:
+			print (e)
+			return False
+
 if __name__ == "__main__":
 	connection = Connection()
-	connection.checkConnection()
+	connection.checkConnection(True)
+	print connection.send ("A")
+	time.sleep(1)
+	print connection.read()
