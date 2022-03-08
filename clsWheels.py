@@ -1,4 +1,4 @@
-from threading import Thread
+import threading
 import time
 #from Raspblock import Raspblock
 class Wheels (object):
