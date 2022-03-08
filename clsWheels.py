@@ -46,7 +46,9 @@ class Wheels (object):
 			self.decodeValues(values,duration)
 			#robot.Speed_Wheel_control(2, 2, 2, 2)      #All wheel forward with 2 speed"
 			#self._move(values,duration)
-	`		Thread(target=self._move,args=(values,duration,),name="ThreadMove").start()
+
+			threadMoving = threading.Thread(target=self._move,args=(values,duration,),name="threadMoving")
+			thradMoving.start()
 			return True
 		except Exception as e:
 			print(e)
