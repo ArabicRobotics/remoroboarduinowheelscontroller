@@ -54,8 +54,9 @@ class Connection (object):
 		""" 
 		try:
 			if self.ser.isOpen():
-				print ("port is opened!")
+				print ("port is open!")
 				self.ser.close()
+				print ("port is now Closed!")
 				return True
 			return True
 			self.checkConnection(True)
