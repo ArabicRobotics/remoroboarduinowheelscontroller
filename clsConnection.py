@@ -90,4 +90,11 @@ if __name__ == "__main__":
 	time.sleep(1)
 	print "read feedback"
 	print connection.read()
+	print "wait for while to enjoy the wheels ..... "
+	time.sleep(10)
+	print "Stop the car "
+	connection.send("z")
 	print "Done All will exit"
+	
+	connection.close()
+
