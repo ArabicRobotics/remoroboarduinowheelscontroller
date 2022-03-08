@@ -66,6 +66,7 @@ class Connection (object):
 	def send(self,x):
 		try:
 			writeFeedback = self.ser.write(str(x.encode()))
+			print "Message Sent "+str(x)
 			return writeFeedback
 		except Exception as e:
 			print (e)
@@ -73,7 +74,7 @@ class Connection (object):
 
 	def read(self):
 		try:
-			data = arduino.readline()
+			data = self.ser.readline()
 			return data
 		except Exception as e:
 			print (e)
@@ -82,6 +83,11 @@ class Connection (object):
 if __name__ == "__main__":
 	connection = Connection()
 	connection.checkConnection(True)
+	print "sleeping 5 after open Connection "
+	time.sleep(5)
 	print connection.send ("A")
+	print "message Sent"
 	time.sleep(1)
+	print "read feedback"
 	print connection.read()
+	print "Done All will exit"
