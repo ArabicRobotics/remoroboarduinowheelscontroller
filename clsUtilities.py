@@ -13,8 +13,8 @@ class enumItem(object):
 		self.description = shortDescription
 
 		
-class mixedTools(object):
-        classmethod
+class MixedTools():
+        staticmethod
         def ArrayToString(values=[1,2,3,4]):                
                 try:                        
                         list1 = values
@@ -25,4 +25,4 @@ class mixedTools(object):
                         return False
 
 if __name__ == "__main__":
-	print (mixedTools.ArrayToString())
+	print (MixedTools.ArrayToString())
