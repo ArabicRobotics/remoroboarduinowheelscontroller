@@ -4,13 +4,15 @@ import time
 from clsServerUtilities import ServerUtilities
 from enums import *
 from clsJsonFormatter import JsonFormatter
+from clsConnection import connection
 class Robot (object):
 	"""This class for """ 
 	def __init__(self):
 		"""This initilization for 
 		""" 
 		try: 
-			self.wheels =Wheels()
+			self.connection = Connection()
+			self.wheels =Wheels(self.connection)
 			return
 		except Exception as e:
 			print (e)

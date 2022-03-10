@@ -1,12 +1,15 @@
 import threading
+from clsUtilities import mixedTools
 import time
 #from Raspblock import Raspblock
 class Wheels (object):
-	def __init__(self):
+	def __init__(self,connection):
 		"""This initilization for 
 		""" 
 		try: 
 			#self.robot = robot
+			self.connection = connection
+			self.connection.open()
 			return
 		except Exception as e:
 			print(e)
@@ -25,6 +28,8 @@ class Wheels (object):
 			print values
 			print duration
 			print "End Print Move"
+			message = "<"+mixedTools.ArrayToString(values)+","+str(duration)+">"
+			self.connection.send(message)
 			#result = self.robot.Speed_Wheel_control(values[0],values[1], values[2],values[3])      #All wheel forward with 2 speed"
 			if duration>0:
 				time.sleep(duration)

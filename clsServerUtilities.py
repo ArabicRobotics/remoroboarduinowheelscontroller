@@ -25,7 +25,7 @@ class ServerUtilities(object):
         except Exception as e:
             print (e)
             return False
-                
+
 def main():
     print (ServerUtilities.setResult("result",True))
 
