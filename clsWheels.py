@@ -8,6 +8,7 @@ class Wheels (object):
 		""" 
 		try: 
 			#self.robot = robot
+			self.mixedTools = MixedTools()
 			self.connection = connection
 			self.connection.open()
 			return
@@ -28,7 +29,7 @@ class Wheels (object):
 			print values
 			print duration
 			print "End Print Move"
-			message = "<"+MixedTools.ArrayToString(values)+","+str(duration)+">"
+			message = "<"+self.mixedTools.ArrayToString(values)+","+str(duration)+">"
 			self.connection.send(message)
 			#result = self.robot.Speed_Wheel_control(values[0],values[1], values[2],values[3])      #All wheel forward with 2 speed"
 			if duration>0:
