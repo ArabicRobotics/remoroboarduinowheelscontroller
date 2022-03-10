@@ -1,5 +1,5 @@
 import threading
-from clsUtilities import mixedTools
+from clsUtilities import MixedTools
 import time
 #from Raspblock import Raspblock
 class Wheels (object):
@@ -28,7 +28,7 @@ class Wheels (object):
 			print values
 			print duration
 			print "End Print Move"
-			message = "<"+mixedTools.ArrayToString(values)+","+str(duration)+">"
+			message = "<"+MixedTools.ArrayToString(values)+","+str(duration)+">"
 			self.connection.send(message)
 			#result = self.robot.Speed_Wheel_control(values[0],values[1], values[2],values[3])      #All wheel forward with 2 speed"
 			if duration>0:
