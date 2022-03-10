@@ -4,7 +4,7 @@ import time
 from clsServerUtilities import ServerUtilities
 from enums import *
 from clsJsonFormatter import JsonFormatter
-from clsConnection import connection
+from clsConnection import Connection
 class Robot (object):
 	"""This class for """ 
 	def __init__(self):
