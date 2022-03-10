@@ -11,7 +11,7 @@ class Connection (object):
 		"""This initilization for 
 		""" 
 		try:
-			self.ser = serial.Serial(port='/dev/ttyUSB0', baudrate=9600, timeout=.7)
+			self.ser = serial.Serial(port='/dev/ttyUSB1', baudrate=9600, timeout=.7)
 			self.result=None
 			return
 		except Exception as e:
