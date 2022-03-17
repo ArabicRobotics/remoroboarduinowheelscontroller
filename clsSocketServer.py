@@ -14,10 +14,8 @@ class ClientThread(threading.Thread):
 			msg = ''
 			while True:
 				try:
-
 					data = self.csocket.recv(2048)
 					msg = data.decode()
-
 					SocketSever.lastData = msg
 					threadCatchData = threading.Thread(target=self.catcher.Catch,args=(msg,),name="ThreadCatchData")
 					threadCatchData.start()
