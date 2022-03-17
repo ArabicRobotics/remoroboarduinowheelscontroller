@@ -34,6 +34,15 @@ class InputCatcher(object):
 		except Exception as e:
 			print (e)
 			print "error in Do "
+			try:
+				doThread = threading.Thread(target=self.robot.move,args=(data,4,self.socket,0,),name="ThreadingDoing")
+				doThread.start()
+			except Exception as e:
+				print ("error in move direct ")
+				print (e)
+				return False
+			print "Error in Do"
+			print e
 			return False
 
 	def doAction(self,command,params,requestId=""):
