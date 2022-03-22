@@ -13,6 +13,9 @@ class Connection (object):
 		try:
 			self.ser = serial.Serial(port='/dev/ttyUSB0', baudrate=9600, timeout=.7)
 			self.result=None
+			self.lastRead = None
+			self.isReading=False
+			self.threadReading=None
 			return
 		except Exception as e:
 			print (e)
@@ -45,6 +48,9 @@ class Connection (object):
 		""" 
 		try:
 			self.checkConnection(True)
+			if (self.isReading==False):
+				self.threadReading = threading.Thread(target=self.reader,name="Thread Reading ..")
+				self.threadReading.start()
 		except Exception as e:
 			print (e)
 			return False
@@ -80,6 +86,17 @@ class Connection (object):
 		except Exception as e:
 			print (e)
 			return False
+
+	def reader(self):
+		try:
+			while (True):
+				time.sleep(0.3)
+				self.lastRead = self.read()
+				print (self.lastRead)
+		except Exception as e:
+			print (e)
+			return False
+
 
 if __name__ == "__main__":
 	connection = Connection()
