@@ -91,8 +91,9 @@ class Connection (object):
 		try:
 			while (True):
 				time.sleep(0.3)
-				self.lastRead = self.read()
-				print (self.lastRead)
+				if self.ser.in_waiting:
+					self.lastRead = self.read()
+					print (self.lastRead)
 		except Exception as e:
 			print (e)
 			return False
