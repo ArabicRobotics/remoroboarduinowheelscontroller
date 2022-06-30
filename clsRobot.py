@@ -30,15 +30,18 @@ class Robot (object):
 			result = self.wheels.move(values,duration)
 			if result == True:
 				result = ServerUtilities.setResult("Robot Movement",result,enumEventType.Success,requestId)
-				socket.send(str(result))
+				if socket != None:
+					socket.send(str(result))
 				return True
 			else:
 				result = ServerUtilities.setResult("Robot Movement",result,enumEventType.Error,requestId)
-				socket.send(str(result))
+				if socket != None:
+					socket.send(str(result))
 				return False
 		except Exception as e:
 			result = ServerUtilities.setResult("Robot Movement",e,enumEventType.Error,requestId)
-			socket.send(str(result))			
+			if socket != None:
+				socket.send(str(result))			
 			print(e)
 			return False
 

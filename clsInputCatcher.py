@@ -8,6 +8,7 @@ class InputCatcher(object):
 	def __init__(self,socket):
 		self.socket = socket
 		self.robot = Robot()
+		self.data = None
 		return
 
 	def Catch(self,data=None):
