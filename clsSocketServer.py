@@ -15,13 +15,16 @@ class ClientThread(threading.Thread):
 			while True:
 				try:
 					data = self.csocket.recv(2048)
-					msg = data.decode()
-					SocketSever.lastData = msg
-					threadCatchData = threading.Thread(target=self.catcher.Catch,args=(msg,),name="ThreadCatchData")
-					threadCatchData.start()
-
-					if msg=='bye':
-						break
+					if data: 
+						msg = data.decode()
+						SocketSever.lastData = msg
+						threadCatchData = threading.Thread(target=self.catcher.Catch,args=(msg,),name="ThreadCatchData")
+						threadCatchData.start()
+						if msg=='bye':
+							break
+					else :
+						print("Closing connection")						
+						self.csocket.close()
 				except Exception as e:
 					print (e)
 					print "Error in Data"
