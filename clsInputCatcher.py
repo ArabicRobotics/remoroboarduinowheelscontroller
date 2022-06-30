@@ -13,8 +13,12 @@ class InputCatcher(object):
 
 	def Catch(self,data=None):
 		try:
-			doThread = threading.Thread(target=self.do,args=(data,),name="ThreadingDoing")
-			doThread.start()
+			if len(data)>5:
+
+				doThread = threading.Thread(target=self.do,args=(data,),name="ThreadingDoing")
+				doThread.start()
+			else:
+				return False
 		except Exception as e:
 			print (e)
 			return False
