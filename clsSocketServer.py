@@ -28,8 +28,7 @@ class ClientThread(threading.Thread):
 				except Exception as e:
 					print (e)
 					print "Error in Data"
-				print ("from client", SocketSever.lastData)
-				break
+				print ("from client", SocketSever.lastData)					
 				#self.csocket.send(bytes(msg,'UTF-8'))
 
 			print ("Client at "+str(self.clientAddress) +  " disconnected...") 
