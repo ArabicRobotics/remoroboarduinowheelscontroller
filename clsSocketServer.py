@@ -27,13 +27,13 @@ class ClientThread(threading.Thread):
 						self.csocket.close()
 				except Exception as e:
 					print (e)
-					print "Error in Data"
+					print ("Error in Data")
 				print ("from client", SocketSever.lastData)					
 				#self.csocket.send(bytes(msg,'UTF-8'))
 
 			print ("Client at "+str(self.clientAddress) +  " disconnected...") 
 		except Exception as e:
-			print "Error in Socket Server -- Run"
+			print ("Error in Socket Server -- Run")
 			print (e)
 			return False
 class SocketSever(object):
@@ -56,7 +56,7 @@ class SocketSever(object):
 				newthread = ClientThread(clientAddress, clientsock)
 				newthread.start()
 			except Exception as e:
-				print "Error in Socket Server -- Start"
+				print ("Error in Socket Server -- Start")
 				print (e)
 if __name__ == "__main__":
 	server = SocketSever()
