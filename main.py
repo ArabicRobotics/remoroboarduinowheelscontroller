@@ -3,7 +3,6 @@ from clsSocketServer import SocketSever
 import sys
 from clsInputCatcher import InputCatcher
 from clsRobot import Robot
-from cls
 def main():
 	server = SocketSever()
 	server.Start()
