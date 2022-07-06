@@ -178,9 +178,9 @@ class PSWorker (object):
 				y = (ControllerData.axis_data[1]*-1) 
 				angle =  ControllerData.getAngle360(0,0,x,y)
 				#print ("Moving x : "+str(x)+ "  Y: "+ str(y)+" angle"+str(angle))
-				#print self.robot.activeRobot.name
-                moveData = MixedTools.convertAngleMove(str(angle),str(x*self.MegaSpeed),str(y*self.MegaSpeed))
-				print self.robot.move(moveData,)
+				moveData = MixedTools.convertAngleMove(str(angle),str(x*self.MegaSpeed),str(y*self.MegaSpeed))
+                #moveData = MixedTools.convertAngleMove(str(angle),str(x*self.MegaSpeed),str(y*self.MegaSpeed))
+				print self.robot.move(moveData)
 				#print self.robot.activeRobot.name
 				#print self.robot.activeRobot.connection.defaultConnection
 				#ledsRobot = self.robot.getByFunction(enumRobotAttributes.Leds)

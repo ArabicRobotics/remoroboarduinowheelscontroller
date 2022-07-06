@@ -26,7 +26,7 @@ class Robot (object):
 		False : Something went wrong
 		""" 
 		try: 
-			print " I am in Robot-move"
+			print (" I am in Robot-move")
 			result = self.wheels.move(values,duration)
 			if result == True:
 				result = ServerUtilities.setResult("Robot Movement",result,enumEventType.Success,requestId)

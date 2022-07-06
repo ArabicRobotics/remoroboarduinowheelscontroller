@@ -25,10 +25,10 @@ class Wheels (object):
 		""" 
 		try: 
 			result = ""
-			print "I am in _move "
-			print values
-			print duration
-			print "End Print Move"
+			print ("I am in _move ")
+			print (values)
+			print (duration)
+			print ("End Print Move")
 			message = "<"+self.mixedTools.ArrayToString(values)+","+str(duration)+">"
 			self.connection.send(message)
 			#result = self.robot.Speed_Wheel_control(values[0],values[1], values[2],values[3])      #All wheel forward with 2 speed"
@@ -48,7 +48,7 @@ class Wheels (object):
 		False : Something went wrong
 		""" 
 		try: 
-			print "I am in wheels-move"
+			print ("I am in wheels-move")
 			print (values)
 
 			#robot.Speed_Wheel_control(2, 2, 2, 2)      #All wheel forward with 2 speed"

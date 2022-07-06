@@ -51,8 +51,8 @@ class InputCatcher(object):
 				print ("error in move direct ")
 				print (e)
 				return False
-			print "Error in Do"
-			print e
+			print ("Error in Do")
+			print (e)
 			return False
 
 	def doAction(self,command,params,requestId=""):
@@ -62,7 +62,7 @@ class InputCatcher(object):
 			print (" I am in doAction with "+str(params))
 			while(switch(command)):
 				if case("m"):
-					print "Command Is Move "
+					print ("Command Is Move ")
 					result = ServerUtilities.setResult("Movement Command Received",result,enumEventType.Success,requestId)
 					self.socket.send(str(result))
 					result = self.robot.move(params,duration,self.socket,requestId)

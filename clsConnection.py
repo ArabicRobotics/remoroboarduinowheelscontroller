@@ -73,7 +73,7 @@ class Connection (object):
 	def send(self,x):
 		try:
 			writeFeedback = self.ser.write(str(x.encode()))
-			print "Message Sent "+str(x)
+			print ("Message Sent "+str(x))
 			return writeFeedback
 		except Exception as e:
 			print (e)
@@ -102,18 +102,18 @@ class Connection (object):
 if __name__ == "__main__":
 	connection = Connection()
 	connection.checkConnection(True)
-	print "sleeping 5 after open Connection "
+	print ("sleeping 5 after open Connection ")
 	time.sleep(5)
-	print connection.send ("A")
-	print "message Sent"
+	print (connection.send ("A"))
+	print ("message Sent")
 	time.sleep(1)
-	print "read feedback"
-	print connection.read()
-	print "wait for while to enjoy the wheels ..... "
+	print ("read feedback")
+	print (connection.read())
+	print ("wait for while to enjoy the wheels ..... ")
 	time.sleep(10)
-	print "Stop the car "
+	print ("Stop the car ")
 	connection.send("z")
-	print "Done All will exit"
+	print ("Done All will exit")
 	
 	connection.close()
 

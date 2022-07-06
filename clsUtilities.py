@@ -71,7 +71,7 @@ class MixedTools(object):
 				return self.floatToInt(values)
 		except Exception as e:
 			print ("Error in socket move")
-			print e
+			print (e)
 			logger = clsLog()
 			logger.error(str(e))
 			return False
