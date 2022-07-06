@@ -30,7 +30,7 @@ class MixedTools(object):
 			values = [0,0,0,0]
 			X=X* self.scale
 			Y=Y*self.scale
-			angle = int(inAngle)
+			angle = int(float(inAngle))
 			#if angle ==0:
 			#    return values
 			if angle>=0 and angle<45:
