@@ -37,9 +37,10 @@ class Wheels (object):
 				#self.robot.Speed_Wheel_control(0,0,0,0) 
 			return result
 		except Exception as e:
+			print ("Error in wheels._move")
 			print(e)
 			return False
-	def move(self,values,duration):
+	def move(self,values,duration=10):
 		""" This Method for
 		@type  paramName: Bool
 		@param paramName : Description
