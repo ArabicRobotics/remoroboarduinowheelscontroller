@@ -14,7 +14,7 @@ class PSWorker (object):
 			self.exit = False
 			self.robot = None
 			self.MegaSpeed=100
-			self.mixedTools = MixedTools()
+			self.mixedTools = MixedTools(self.MegaSpeed)         
 			return
 		except Exception as e:
 			print (e)
