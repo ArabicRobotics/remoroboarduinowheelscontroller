@@ -31,17 +31,17 @@ class Robot (object):
 			if result == True:
 				result = ServerUtilities.setResult("Robot Movement",result,enumEventType.Success,requestId)
 				if socket != None:
-					socket.send(str(result))
+					socket.send(str(result).encode())
 				return True
 			else:
 				result = ServerUtilities.setResult("Robot Movement",result,enumEventType.Error,requestId)
 				if socket != None:
-					socket.send(str(result))
+					socket.send(str(result).encode())
 				return False
 		except Exception as e:
 			result = ServerUtilities.setResult("Robot Movement",e,enumEventType.Error,requestId)
 			if socket != None:
-				socket.send(str(result))			
+				socket.send(str(result).encode())		
 			print(e)
 			return False
 
@@ -66,11 +66,11 @@ class Robot (object):
 		try: 
 			threading.Thread(target=self._buzz,args=(OnOff,duration,),name="ThreadMove").start()
 			result = ServerUtilities.setResult("Robot Buzz",True,enumEventType.Success,requestId)
-			self.socket.send(str(result))
+			self.socket.send(str(result).encode()))
 			return True
 		except Exception as e:
 			result = ServerUtilities.setResult("Robot Buzz",e,enumEventType.Error,requestId)
-			self.socket.send(str(result))
+			self.socket.send(str(result).encode()))
 			print(e)
 			return False
 	"""
