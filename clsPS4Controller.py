@@ -6,7 +6,6 @@ import pygame
 import threading
 import time
 from clsControllerData import ControllerData 
-from clsLog import clsLog
 class PS4Controller(threading.Thread):
     """Class representing the PS4 controller. Pretty straightforward functionality."""
 
