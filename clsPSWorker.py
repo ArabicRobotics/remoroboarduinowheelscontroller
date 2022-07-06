@@ -14,6 +14,7 @@ class PSWorker (object):
 			self.exit = False
 			self.robot = None
 			self.MegaSpeed=100
+			self.mixedTools = MixedTools()
 			return
 		except Exception as e:
 			print (e)
@@ -166,8 +167,8 @@ class PSWorker (object):
 				x = ControllerData.axis_data[0] 
 				y = (ControllerData.axis_data[1]*-1) 
 				angle =  ControllerData.getAngle360(0,0,x,y)
-				print ("Moving x : "+str(x)+ "  Y: "+ str(y)+" angle"+str(angle))
-				moveData = MixedTools.convertAngleMove(str(angle),str(x*self.MegaSpeed),str(y*self.MegaSpeed))
+				print ("Moving Y : "+str(x)+ "  Y: "+ str(y)+" angle"+str(angle))
+				moveData = self.mixedTools.convertAngleMove(str(angle),str(x*self.MegaSpeed),str(y*self.MegaSpeed))
                 #moveData = MixedTools.convertAngleMove(str(angle),str(x*self.MegaSpeed),str(y*self.MegaSpeed))
 				print (self.robot.move(moveData))
 				#print self.robot.activeRobot.name
