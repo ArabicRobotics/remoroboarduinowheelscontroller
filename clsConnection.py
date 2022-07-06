@@ -1,4 +1,5 @@
 
+import imp
 import threading
 import serial
 import time
@@ -11,7 +12,7 @@ class Connection (object):
 		"""This initilization for 
 		""" 
 		try:
-			self.ser = serial.Serial(port='/dev/ttyUSB0', baudrate=9600, timeout=.7)
+			self.ser =  serial(port='/dev/ttyUSB0', baudrate=9600, timeout=.7)
 			self.result=None
 			self.lastRead = None
 			self.isReading=False
@@ -35,8 +36,8 @@ class Connection (object):
 					print ("Port is Closed!")
 				return True
 			except IOError: # if port is already opened, close it and open it again and print message
-				ser.close()
-				ser.open()
+				self.ser.close()
+				self.ser.open()
 				print ("port was already open, was closed and opened again!")
 				return False
 		except Exception as e:
@@ -72,10 +73,11 @@ class Connection (object):
 
 	def send(self,x):
 		try:
-			writeFeedback = self.ser.write(str(x.encode()))
+			writeFeedback = self.ser.write(str.encode((x)))
 			print ("Message Sent "+str(x))
 			return writeFeedback
 		except Exception as e:
+			print ("Error in Send ")
 			print (e)
 			return False
 
