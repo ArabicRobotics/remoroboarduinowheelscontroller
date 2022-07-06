@@ -1,5 +1,4 @@
-from clsLog import clsLog
-from clsRemoRobo import RemoRobo
+from re import X
 from clsPS4Controller import PS4Controller, ControllerData
 from clsLedsUtilities import *
 import threading
@@ -19,8 +18,7 @@ class PSWorker (object):
 			self.MegaSpeed=100
 			return
 		except Exception as e:
-			logger = clsLog()
-			logger.error(str(e))
+			print (e)
 			return
 # threading Functions 
 	def stop(self):
@@ -36,15 +34,13 @@ class PSWorker (object):
 			print ("controller stopped ")
 			return True
 		except Exception as e:
-			logger = clsLog()
-			logger.error(str(e))
+			print (e)
 			return False
 	def _start(self):
 		try: 
 			return self.controller.start()
 		except Exception as e:
-			logger = clsLog()
-			logger.error(str(e))
+			print (e)
 			return False
 #endTHreading Functions 
 
@@ -74,8 +70,7 @@ class PSWorker (object):
 						ControllerData.newData = False                
 				return True
 		except Exception as e:
-			logger = clsLog()
-			logger.error(str(e))
+			print (e)
 			return False
 	def do (self):
 		""" This Method for  
@@ -104,8 +99,7 @@ class PSWorker (object):
 					return True
 			return True
 		except Exception as e:
-			logger = clsLog()
-			logger.error(str(e))
+			print (e)
 			return False
 
 
@@ -125,8 +119,7 @@ class PSWorker (object):
 					return True
 				return False
 			except Exception as e:
-				logger = clsLog()
-				logger.error(str(e))
+				print (e)
 				return False 
 	def _checkOptions(self):
 			""" This Method for   Four Buttons
@@ -143,8 +136,7 @@ class PSWorker (object):
 					return True
 				return False
 			except Exception as e:
-				logger = clsLog()
-				logger.error(str(e))
+				print (e)
 				return False
 	def checkExit(self):
 		""" This Method for   Options four bunntons +  + Share
@@ -160,8 +152,7 @@ class PSWorker (object):
 				return True
 			return False
 		except Exception as e:
-			logger = clsLog()
-			logger.error(str(e))
+			print (e)
 			return False 
 
 	
@@ -180,16 +171,14 @@ class PSWorker (object):
 				#print ("Moving x : "+str(x)+ "  Y: "+ str(y)+" angle"+str(angle))
 				moveData = MixedTools.convertAngleMove(str(angle),str(x*self.MegaSpeed),str(y*self.MegaSpeed))
                 #moveData = MixedTools.convertAngleMove(str(angle),str(x*self.MegaSpeed),str(y*self.MegaSpeed))
-				print self.robot.move(moveData)
+				print (self.robot.move(moveData))
 				#print self.robot.activeRobot.name
 				#print self.robot.activeRobot.connection.defaultConnection
 				#ledsRobot = self.robot.getByFunction(enumRobotAttributes.Leds)
 				#ledsRobot.Leds.SetLed(enumLedName.progress,enumLedStatus.Dismiss)
 				return True
 			except Exception as e:
-				print e
-				logger = clsLog()
-				logger.error(str(e))
+				print (e)
 				return False
 
 	def rotate(self):
@@ -203,17 +192,15 @@ class PSWorker (object):
 			try: 				
 				x = ControllerData.R_Ball_H *self.MegaSpeed
 				print ("Rorating to "+str(x))
-				self.robot.activeRobot.Movement.rotate(str(x))
+				values=[int(str(X))      ,   -int(str(x))      ,     int(str(x))      ,  - int(str(x)) ]
+				self.robot.move(values)
 				return True
 			except Exception as e:
-				print e
-				logger = clsLog()
-				logger.error(str(e))
+				print (e)
 				return False
 
 if __name__ == "__main__":
 	worker = PSWorker()
-	worker.robot = robot
+	worker.robot = Robot()
 	worker.work()
-	print ("robot will shutDown")
-	robot.shutDown()    
+	print ("robot will shutDown") 
