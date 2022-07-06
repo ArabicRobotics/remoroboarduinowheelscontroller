@@ -31,8 +31,6 @@ class PS4Controller(threading.Thread):
             self.error = True
             print ("Error in Joystick : "+str(e))
             self.error=True
-            logger = clsLog()
-            logger.error(str(e))
             return 
         self.controller.init()        
 
