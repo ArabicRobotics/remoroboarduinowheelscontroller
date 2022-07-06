@@ -72,8 +72,6 @@ class MixedTools(object):
 		except Exception as e:
 			print ("Error in socket move")
 			print (e)
-			logger = clsLog()
-			logger.error(str(e))
 			return False
 
 
