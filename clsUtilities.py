@@ -29,6 +29,10 @@ class MixedTools(object):
 	def convertAngleMove(self,inAngle,X,Y):
 		try:
 			print ("I am in _move ! ")
+			print ("X : "+str(X))
+			print ("Y : "+str(Y))
+			print (" Angle  : "+str(angle))
+			
 			values = [0,0,0,0]
 			X=X* self.scale
 			Y=Y*self.scale
@@ -72,15 +76,20 @@ class MixedTools(object):
 
 				return self.floatToInt(values)
 		except Exception as e:
-			print ("Error in socket move")
+			print ("Error in convertAngleMove ")
 			print (e)
 			return False
 	def floatToInt(self,values):
-		retValues=[]
-		for value in values:
-			cvalue = int(value)
-			retValues.append(cvalue)
-		return retValues
+		try:
+			retValues=[]
+			for value in values:
+				cvalue = int(value)
+				retValues.append(cvalue)
+
+			return retValues
+		except Exception as e:
+			print ("Error in float to int ")
+			print (e)
 
 if __name__ == "__main__":
 	mixedTools = MixedTools()
