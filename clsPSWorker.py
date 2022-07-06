@@ -1,4 +1,3 @@
-from re import X
 from clsPS4Controller import PS4Controller, ControllerData
 import threading
 import time
@@ -191,7 +190,7 @@ class PSWorker (object):
 			try: 				
 				x = ControllerData.R_Ball_H *self.MegaSpeed
 				print ("Rorating to "+str(x))
-				values=[int(str(X))      ,   -int(str(x))      ,     int(str(x))      ,  - int(str(x)) ]
+				values=[int(str(x))      ,   -int(str(x))      ,     int(str(x))      ,  - int(str(x)) ]
 				self.robot.move(values)
 				return True
 			except Exception as e:
