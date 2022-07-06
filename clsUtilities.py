@@ -14,6 +14,8 @@ class enumItem(object):
 
 		
 class MixedTools(object):
+	def __init__(self,scale = 1):
+		self.scale = scale
         
 	def ArrayToString(self,values=[1,2,3,4]):                
 			try:                        

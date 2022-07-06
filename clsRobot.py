@@ -17,7 +17,7 @@ class Robot (object):
 		except Exception as e:
 			print (e)
 			return
-	def move(self,values,duration,socket=None,requestId=None):
+	def move(self,values,duration=10,socket=None,requestId=None):
 		""" This Method for  
 		@type  paramName: Bool
 		@param paramName : Description
