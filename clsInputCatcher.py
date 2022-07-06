@@ -34,7 +34,7 @@ class InputCatcher(object):
 				result = self.doAction(jsonData["com"],jsonData["params"],jsonData["requestId"])
 			else:
 				result = ServerUtilities.setResult("Json Error",False,enumEventType.Error,"")
-				self.socket.send(str(result))
+				self.socket.send(str(result).encode())
 			return True
 		except Exception as e:
 			print (e)
@@ -59,13 +59,13 @@ class InputCatcher(object):
 				if case("m"):
 					print ("Command Is Move ")
 					result = ServerUtilities.setResult("Movement Command Received",result,enumEventType.Success,requestId)
-					self.socket.send(str(result))
+					self.socket.send(str(result).encode())
 					result = self.robot.move(params,duration,self.socket,requestId)
 					if result:
 						result = ServerUtilities.setResult("Movement Command Received",result,enumEventType.Success,requestId)
 					else:
 						result = ServerUtilities.setResult("Movement",result,enumEventType.Error,requestId)    						
-					self.socket.send(str(result))
+					self.socket.send(str(result).encode())
 					return
 				if (case("b")):
 					result  = "Buzz"
@@ -73,16 +73,16 @@ class InputCatcher(object):
 						result = ServerUtilities.setResult("Buzz",result,enumEventType.Success,requestId)
 					else:
 						result = ServerUtilities.setResult("Buzz",False,enumEventType.Error,requestId)    						
-					self.socket.send(str(result))
+					self.socket.send(str(result).encode())
 					return
 				return
 			result = ServerUtilities.setResult("Not Existing Command ( Please send m ot b",False,enumEventType.Error,requestId)
 			
-			self.socket.send(str(result))
+			self.socket.send(str(result).encode())
 
 			return True
 		except Exception as e:
 			result = ServerUtilities.setResult("Error while doing the Action",e,enumEventType.Error,"")
-			self.socket.send(str(result))
+			self.socket.send(str(result).encode())
 			print (e)
 			return False
