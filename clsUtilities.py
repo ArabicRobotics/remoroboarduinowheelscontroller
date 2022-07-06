@@ -32,11 +32,11 @@ class MixedTools(object):
 			print ("X : "+str(X))
 			print ("Y : "+str(Y))
 			print (" Angle  : "+str(inAngle))
-
 			values = [0,0,0,0]
 			X=X* self.scale
 			Y=Y*self.scale
 			angle = int(float(inAngle))
+			print ("Started On ... ")
 			#if angle ==0:
 			#    return values
 			if angle>=0 and angle<45:
