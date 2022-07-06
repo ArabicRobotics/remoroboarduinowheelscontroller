@@ -6,16 +6,11 @@ from clsUtilities import *
 from clsRobot import Robot
 from clsPSWorker import *
 class InputCatcher(object):
-	def __init__(self,socket):
+	def __init__(self,socket,robot):
 		self.socket = socket
-		self.robot = Robot()
+		self.robot = robot
 		self.data = None
-		self.psWorker = PSWorker()
-		self.psWorker.robot = self.robot
-		self.threadPS = threading.Thread(target=self.psWorker.work)
-		self.threadPS.start()
 		return
-
 	def Catch(self,data=None):
 		try:
 			if len(data)>5:

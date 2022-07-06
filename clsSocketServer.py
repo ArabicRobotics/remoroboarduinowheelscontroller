@@ -1,12 +1,12 @@
 ﻿from clsInputCatcher import  InputCatcher
 import socket, threading
 class ClientThread(threading.Thread):
-	def __init__(self,clientAddress,clientsocket):
+	def __init__(self,clientAddress,clientsocket,robot):
 		threading.Thread.__init__(self)
 		self.csocket = clientsocket
 		self.clientAddress = clientAddress
 		print ("New connection added: ", clientAddress)		
-		self.catcher = InputCatcher(self.csocket)
+		self.catcher = InputCatcher(self.csocket,robot)		
 	def run(self):
 		try:
 			print ("Connection from : ", self.clientAddress)
@@ -38,8 +38,8 @@ class ClientThread(threading.Thread):
 			return False
 class SocketSever(object):
 	lastData = None	
-	def __init__(self):
-
+	def __init__(self,robot):
+		self.robot = robot
 		return
 	def Start(self,HOST = "",PORT=12345):
 		self.host = HOST
@@ -53,7 +53,7 @@ class SocketSever(object):
 			try:
 				self.server.listen(1)
 				clientsock, clientAddress = self.server.accept()
-				newthread = ClientThread(clientAddress, clientsock)
+				newthread = ClientThread(clientAddress, clientsock,self.robot)
 				newthread.start()
 			except Exception as e:
 				print ("Error in Socket Server -- Start")
