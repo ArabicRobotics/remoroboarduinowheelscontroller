@@ -4,7 +4,7 @@ from enums import *
 from clsJsonFormatter import JsonFormatter
 from clsUtilities import *
 from clsRobot import Robot
-from clsPSWorker import PSWorker, worker
+from clsPSWorker import *
 class InputCatcher(object):
 	def __init__(self,socket):
 		self.socket = socket
