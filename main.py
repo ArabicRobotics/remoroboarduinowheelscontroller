@@ -7,7 +7,7 @@ from clsInputCatcher import InputCatcher
 from clsRobot import Robot
 def main():
 	server = SocketSever()
-	t= threading.Thread(server.Start)
+	t= threading.Thread(target =server.Start)
 	t.start()
 
 # Message Example     {"com": "m","params": [1,-200,3,4], "requestId": "2"}  
