@@ -75,7 +75,12 @@ class MixedTools(object):
 			print ("Error in socket move")
 			print (e)
 			return False
-
+	def floatToInt(self,values):
+		retValues=[]
+		for value in values:
+			cvalue = int(value)
+			retValues.append(cvalue)
+		return retValues
 
 if __name__ == "__main__":
 	mixedTools = MixedTools()
