@@ -31,8 +31,8 @@ class MixedTools(object):
 			print ("I am in _move ! ")
 			print ("X : "+str(X))
 			print ("Y : "+str(Y))
-			print (" Angle  : "+str(angle))
-			
+			print (" Angle  : "+str(inAngle))
+
 			values = [0,0,0,0]
 			X=X* self.scale
 			Y=Y*self.scale
