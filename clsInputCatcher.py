@@ -4,11 +4,16 @@ from enums import *
 from clsJsonFormatter import JsonFormatter
 from clsUtilities import *
 from clsRobot import Robot
+from clsPSWorker import PSWorker, worker
 class InputCatcher(object):
 	def __init__(self,socket):
 		self.socket = socket
 		self.robot = Robot()
 		self.data = None
+		self.psWorker = PSWorker()
+		self.psWorker.robot = self.robot
+		self.threadPS = threading.Thread(target=self.psWorker.work)
+		self.threadPS.start()
 		return
 
 	def Catch(self,data=None):
@@ -28,7 +33,7 @@ class InputCatcher(object):
 			
 			print(data)
 			jsonData= JsonFormatter.getJsonfromString(data)
-			print "do--> json Data Json Formatter Getting .. Done"
+			print ("do--> json Data Json Formatter Getting .. Done")
 			if jsonData != False:
 				#self.socket.send(str(data))
 				result = self.doAction(jsonData["com"],jsonData["params"],jsonData["requestId"])
@@ -38,7 +43,7 @@ class InputCatcher(object):
 			return True
 		except Exception as e:
 			print (e)
-			print "error in Do "
+			print ("error in Do ")
 			try:
 				doThread = threading.Thread(target=self.robot.move,args=(data,4,self.socket,0,),name="ThreadingDoing")
 				doThread.start()
