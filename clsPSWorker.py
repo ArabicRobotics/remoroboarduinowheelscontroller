@@ -13,7 +13,7 @@ class PSWorker (object):
 			self.controller = PS4Controller()             
 			self.exit = False
 			self.robot = None
-			self.MegaSpeed=100
+			self.MegaSpeed=30
 			self.mixedTools = MixedTools(self.MegaSpeed)         
 			return
 		except Exception as e:
