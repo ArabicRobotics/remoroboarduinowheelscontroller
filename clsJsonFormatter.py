@@ -60,9 +60,11 @@ class JsonFormatter (object):
 			self._json = {
 			"RequestId" : self.RequestId
 			}
+			
+			'''
 		if self._moreParams  is not None:
 			self._json.update(self._moreParams)
-
+			'''
 
 		if self.DataArray is not None:
 			self._json["Data"] = self._dataArray            
