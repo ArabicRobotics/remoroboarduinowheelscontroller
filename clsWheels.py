@@ -30,6 +30,7 @@ class Wheels (object):
 			print (duration)
 			print ("End Print Move")
 			message = "<"+self.mixedTools.ArrayToString(values)+","+str(duration)+">"
+			print ("Message will send : "+str(message))
 			self.connection.send(message)
 			#result = self.robot.Speed_Wheel_control(values[0],values[1], values[2],values[3])      #All wheel forward with 2 speed"
 			if duration>0:
