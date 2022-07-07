@@ -15,11 +15,7 @@ class Connection (object):
 			# configure the serial connections (the parameters differs on the device you are connecting to)
 			self.ser = serial.Serial(
     port='/dev/ttyUSB0',
-    baudrate=9600,
-    parity=serial.PARITY_ODD,
-    stopbits=serial.STOPBITS_TWO,
-    bytesize=serial.SEVENBITS
-)
+    baudrate=9600)
 
 
 
