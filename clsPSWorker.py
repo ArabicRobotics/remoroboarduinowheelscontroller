@@ -85,10 +85,10 @@ class PSWorker (object):
 					self.move()
 					#return True
 			if ControllerData.R_Ball_H != None:
-				#print (ControllerData.R_Ball_H)
+				print (ControllerData.R_Ball_H)
 				if ControllerData.R_Ball_H!=0:
 					self.rotate()
-					return True
+					#return True
 			if self._checkOptions():
 				if self.checkExit():
 					self.controller.stop()
