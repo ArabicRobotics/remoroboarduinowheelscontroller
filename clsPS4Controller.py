@@ -145,9 +145,9 @@ if __name__ == "__main__":
             #print ControllerData.button_data
             #x = ControllerData.axis_data[0]*15
             #y = (ControllerData.axis_data[1]*-1)*15
-            #if ControllerData.L_Ball_H!= None:
-                #angle =  ControllerData.getAngle360(0,0,ControllerData.L_Ball_H,ControllerData.L_Ball_V)
-                #print ("( L ) : "+str(angle))
+            if ControllerData.L_Ball_H!= None:
+                angle =  ControllerData.getAngle360(0,0,ControllerData.L_Ball_H,ControllerData.L_Ball_V)
+                print ("( L ) : "+str(angle))
             if ControllerData.R_Ball_H!= None:			
                 angle =  ControllerData.getAngle360(0,0,ControllerData.R_Ball_H,ControllerData.R_Ball_V)
                 print ("( R )  : "+str(angle))
