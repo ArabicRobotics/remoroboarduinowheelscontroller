@@ -84,9 +84,9 @@ class PSWorker (object):
 				if ControllerData.L_Ball_H !=0  or ControllerData.L_Ball_V !=0:
 					self.move()
 					#return True
-			if ControllerData.R_Ball_H != None:
-				print (ControllerData.R_Ball_H)
-				if ControllerData.R_Ball_H!=0:
+			if ControllerData.axis_data[2] != None:
+				print (ControllerData.axis_data[2])
+				if ControllerData.axis_data[2]!=0:
 					self.rotate()
 					#return True
 			if self._checkOptions():
@@ -189,7 +189,7 @@ class PSWorker (object):
 			False : Something went wrong
 			""" 
 			try: 				
-				x = ControllerData.R_Ball_H *self.MegaSpeed
+				x = ControllerData.axis_data[2] *self.MegaSpeed
 				print ("Rorating to "+str(x))
 				values=[int(float(str(x)))      ,   -int(float(str(x)))     ,     -int(float(str(x)))      ,  int(float(str(x))) ]
 				print (self.robot.move(values))
