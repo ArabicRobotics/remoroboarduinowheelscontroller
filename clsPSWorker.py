@@ -190,9 +190,9 @@ class PSWorker (object):
 			try: 				
 				if ControllerData.R_Ctr_R ==True:
 
-					x = 300
-				if ControllerData.R_Ctr_L !=True:
-					x= -300
+					x = -800
+				if ControllerData.R_Ctr_L ==True:
+					x= 800
 				print ("Rorating to "+str(x))
 				values=[int(float(str(x)))      ,   -int(float(str(x)))     ,     -int(float(str(x)))      ,  int(float(str(x))) ]
 				print (self.robot.move(values))
