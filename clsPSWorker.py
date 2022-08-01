@@ -85,7 +85,6 @@ class PSWorker (object):
 					self.move()
 					#return True
 			if ControllerData.R_Ctr_R != None:
-				print (ControllerData.button_data[2])
 				if ControllerData.R_Ctr_R !=False or ControllerData.R_Ctr_L !=False:
 					self.rotate()
 					return True
@@ -189,8 +188,11 @@ class PSWorker (object):
 			False : Something went wrong
 			""" 
 			try: 				
-				#x = ControllerData.axis_data[2] *self.MegaSpeed
-				x= 1000
+				if ControllerData.R_Ctr_R ==True:
+
+					x = 300
+				if ControllerData.R_Ctr_L !=True:
+					x= -300
 				print ("Rorating to "+str(x))
 				values=[int(float(str(x)))      ,   -int(float(str(x)))     ,     -int(float(str(x)))      ,  int(float(str(x))) ]
 				print (self.robot.move(values))
