@@ -191,8 +191,8 @@ class PSWorker (object):
 			try: 				
 				x = ControllerData.R_Ball_H *self.MegaSpeed
 				print ("Rorating to "+str(x))
-				values=[int(float(str(x)))      ,   -int(float(str(x)))     ,     int(float(str(x)))      ,  - int(float(str(x))) ]
-				self.robot.move(values)
+				values=[int(float(str(x)))      ,   -int(float(str(x)))     ,     -int(float(str(x)))      ,  int(float(str(x))) ]
+				print (self.robot.move(values))
 				return True
 			except Exception as e:
 				print (e)

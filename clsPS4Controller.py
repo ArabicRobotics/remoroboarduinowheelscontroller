@@ -153,7 +153,7 @@ if __name__ == "__main__":
                 print ("( R )  : "+str(angle))
 
             print ("Simplified Data")
-            ControllerData.printSimplifiedValues()
+            #ControllerData.printSimplifiedValues()
             if ControllerData.R1:
                 break
             
