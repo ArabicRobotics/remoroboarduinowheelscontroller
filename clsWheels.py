@@ -15,7 +15,7 @@ class Wheels (object):
 		except Exception as e:
 			print(e)
 			return
-	def _move(self,values,duration):
+	def _move(self,values,duration = 20):
 		""" This Method for
 		@type  paramName: Bool
 		@param paramName : Description
