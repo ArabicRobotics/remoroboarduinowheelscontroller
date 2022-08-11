@@ -90,7 +90,7 @@ class PSWorker (object):
 					return True
 
 			#if ControllerData.PS   == True:              #PlayStation#
-			if ControllerData.button_data.get(12):
+			if ControllerData.button_data.get(10):
 				stopValues = [0,0,0,0]
 				self.robot.move(stopValues)
 				return True
