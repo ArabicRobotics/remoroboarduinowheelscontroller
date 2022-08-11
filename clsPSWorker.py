@@ -88,6 +88,11 @@ class PSWorker (object):
 				if ControllerData.R_Ctr_R !=False or ControllerData.R_Ctr_L !=False:
 					self.rotate()
 					return True
+
+			if ControllerData.PS== True:#PlayStation#
+				stopValues = [0,0,0,0]
+				self.robot.move(stopValues)
+				return True
 			if self._checkOptions():
 				if self.checkExit():
 					self.controller.stop()
@@ -95,10 +100,6 @@ class PSWorker (object):
 					return True
 				if self.checkChangeRobot():
 					return True
-			if self.checkExit():
-				stopValues = [0,0,0,0]
-				self.robot.move(stopValues)
-				return True
 			return True
 		except Exception as e:
 			print (e)
