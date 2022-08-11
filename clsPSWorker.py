@@ -95,6 +95,10 @@ class PSWorker (object):
 					return True
 				if self.checkChangeRobot():
 					return True
+			if self.checkExit():
+				stopValues = [0,0,0,0]
+				self.move(stopValues)
+				return True
 			return True
 		except Exception as e:
 			print (e)
