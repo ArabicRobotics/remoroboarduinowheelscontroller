@@ -89,7 +89,8 @@ class PSWorker (object):
 					self.rotate()
 					return True
 
-			if ControllerData.PS== True:#PlayStation#
+			#if ControllerData.PS   == True:              #PlayStation#
+			if ControllerData.button_data.get(12):
 				stopValues = [0,0,0,0]
 				self.robot.move(stopValues)
 				return True
